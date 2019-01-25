@@ -10,32 +10,27 @@ in ./sgx-guest/sgx-module/sgx-module.c, please search and refer to NOTICE (relat
 in ./sgx-guest/sgx-module/include/sgx-module.h, please refer to NOTICE and rewrite the definition of SYS\_CALL\_TABLE, PAGE\_FAULT, and DO\_PAGE\_FAULT 
 
 
-- Compilation
-(let's assume sgx-guest is located in your ~/)
-move ~/sgx-guest/sgx-module
-run make
+- Building and Usage
+(let's assume sgx-guest is located in your (TOP) directory)
+
+1. Building SGX-Module
+run `make` in (TOP)/sgx-guest/sgx-module
 it will create sgxmod.ko
 
-move ~/sgx-guest/sgx-runtime/libsgx/musl-libc
-run 'make clean' (whenever ./sgx-guest/share/include/sgx-shared.h is changed, I recommend repeating this procedure)
-move ~/sgx-guest/sgx-runtime/libsgx
-run 'make clean' and 'make'
-move ~/sgx-guest/sgx-runtime
-run 'make clean' and 'make'
-it will create sgx-runtime
+2. Building SGX-Runtime
+run `make clean` in (TOP)/sgx-guest/sgx-runtime/libsgx/musl-libc directory
+run `make clean` and `make` in (TOP)/sgx-guest/sgx-runtime/libsgx directory
+run `make clean` and `make` in (TOP)/sgx-guest/sgx-runtime directory
 
-- Module loading
-move ~/sgx-guest/sgx-module
-type 'sudo insmod sgxmod.ko'
+3. Module loading
+type `sudo insmod sgxmod.ko` in (TOP)/sgx-guest/sgx-module directory
 
-- Module unloading
-move ~/sgx-guest/sgx-module
-type 'sudo rmmod sgxmod'
+4. Runnning Test Programs
+run `sgx-runtime ./test/simple-hello` in (TOP)/sgx-guest/sgx-runtime directory
 
- 
-- Run Test Programs
-move ~/sgx-guest/sgx-runtime
-run 'sgx-runtime ./test/simple-hello'
+5. Module unloading
+type `sudo rmmod sgxmod` in (TOP)/sgx-guest/sgx-module directory
+
 
 
 
