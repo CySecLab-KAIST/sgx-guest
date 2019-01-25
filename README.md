@@ -14,22 +14,19 @@ in ./sgx-guest/sgx-module/include/sgx-module.h, please refer to NOTICE and rewri
 (let's assume sgx-guest is located in your (TOP) directory)
 
 1. Building SGX-Module
-- run `make` in (TOP)/sgx-guest/sgx-module
+  run `make` in (TOP)/sgx-guest/sgx-module
 
 2. Building SGX-Runtime
-- run `make clean` in (TOP)/sgx-guest/sgx-runtime/libsgx/musl-libc directory
-- run `make clean` and `make` in (TOP)/sgx-guest/sgx-runtime/libsgx directory
-- run `make clean` and `make` in (TOP)/sgx-guest/sgx-runtime directory
+  1. run `make clean` in (TOP)/sgx-guest/sgx-runtime/libsgx/musl-libc directory
+  2. run `make clean` and `make` in (TOP)/sgx-guest/sgx-runtime/libsgx directory
+  3. run `make clean` and `make` in (TOP)/sgx-guest/sgx-runtime directory
 
 3. Module loading
-- type `sudo insmod sgxmod.ko` in (TOP)/sgx-guest/sgx-module directory
+  type `sudo insmod sgxmod.ko` in (TOP)/sgx-guest/sgx-module directory
 
 4. Runnning Test Programs
-- run `sgx-runtime ./test/simple-hello` in (TOP)/sgx-guest/sgx-runtime directory
+  run `sgx-runtime ./test/simple-hello` in (TOP)/sgx-guest/sgx-runtime directory
 
 5. Module unloading
-- type `sudo rmmod sgxmod` in (TOP)/sgx-guest/sgx-module directory
-
-
-
+  type `sudo rmmod sgxmod` in (TOP)/sgx-guest/sgx-module directory
 
